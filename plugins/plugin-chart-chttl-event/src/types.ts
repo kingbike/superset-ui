@@ -16,15 +16,28 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { buildQueryContext, QueryFormData } from '@superset-ui/core';
+import { QueryFormData, supersetTheme, TimeseriesDataRecord } from '@superset-ui/core';
 
-export default function buildQuery(formData: QueryFormData) {
-  const { metric, sort_by_metric } = formData;
-  return buildQueryContext(formData, baseQueryObject => [
-    {
-      ...baseQueryObject,
-      groupby: formData.groupby || [],
-      ...(sort_by_metric && { orderby: [[metric, false]] }),
-    },
-  ]);
+export interface ChttlEventStylesProps {
+  height: number;
+  width: number;
+  headerFontSize: keyof typeof supersetTheme.typography.sizes;
+  subheaderFontSize: keyof typeof supersetTheme.typography.sizes;
+  boldText: boolean;
 }
+
+interface ChttlEventCustomizeProps {
+  headerText: string;
+  subheaderText: string;
+  bigNumber: string;
+}
+
+export type ChttlEventQueryFormData = QueryFormData &
+  ChttlEventStylesProps &
+  ChttlEventCustomizeProps;
+
+export type ChttlEventProps = ChttlEventStylesProps &
+  ChttlEventCustomizeProps & {
+    data: TimeseriesDataRecord[];
+    // add typing here for the props you pass in from transformProps.ts!
+  };

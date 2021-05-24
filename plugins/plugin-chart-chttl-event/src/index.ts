@@ -16,15 +16,12 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-import { buildQueryContext, QueryFormData } from '@superset-ui/core';
-
-export default function buildQuery(formData: QueryFormData) {
-  const { metric, sort_by_metric } = formData;
-  return buildQueryContext(formData, baseQueryObject => [
-    {
-      ...baseQueryObject,
-      groupby: formData.groupby || [],
-      ...(sort_by_metric && { orderby: [[metric, false]] }),
-    },
-  ]);
-}
+// eslint-disable-next-line import/prefer-default-export
+export { default as ChttlEventChartPlugin } from './plugin';
+/**
+ * Note: this file exports the default export from ChttlEvent.tsx.
+ * If you want to export multiple visualization modules, you will need to
+ * either add additional plugin folders (similar in structure to ./plugin)
+ * OR export multiple instances of `ChartPlugin` extensions in ./plugin/index.ts
+ * which in turn load exports from ChttlEvent.tsx
+ */

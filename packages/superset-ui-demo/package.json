@@ -61,6 +61,8 @@
     "@superset-ui/legacy-plugin-chart-word-cloud": "^0.11.15",
     "@superset-ui/legacy-plugin-chart-world-map": "0.17.48",
     "@superset-ui/legacy-preset-chart-big-number": "0.17.48",
+    "@chttl/chttl-plugin-chart-big-number": "0.17.51",
+    "@superset-ui/plugin-chart-chttl-event": "0.0.0",
     "@superset-ui/plugin-chart-echarts": "0.17.48",
     "@superset-ui/plugin-chart-table": "0.17.48",
     "@superset-ui/plugin-chart-word-cloud": "0.17.48",
