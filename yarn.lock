@@ -1447,6 +1447,14 @@
     openurl "1.1.1"
     yargs "16.2.0"
 
+"@chttl/plugin-chart-chttl-event@0.0.0":
+  version "0.0.0"
+  resolved "https://registry.yarnpkg.com/@chttl/plugin-chart-chttl-event/-/plugin-chart-chttl-event-0.0.0.tgz#e3e88f8f3bf1e65947abcfacf5539367d233a6d0"
+  integrity sha512-mkii/dDXKj8+cudxq3StX5zwidh/FU+bZ2SGYd0cFMbGpkrbInAjvd2FGxgmdm8WrLUdh90dqEPkf6ts5jxM+w==
+  dependencies:
+    "@superset-ui/chart-controls" "^0.17.41"
+    "@superset-ui/core" "^0.17.40"
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"

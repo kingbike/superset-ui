@@ -50,11 +50,14 @@ export default function transformProps(chartProps: ChartProps) {
    */
   const { width, height, formData, queriesData } = chartProps;
   const {
-    boldText,
+    bigNumberSize,
     headerFontSize,
     headerText,
     subheaderText,
     subheaderFontSize,
+    boldText,
+    threshold,
+
     metric = 'value',
   } = formData;
   const data = queriesData[0].data as TimeseriesDataRecord[];
@@ -73,10 +76,12 @@ export default function transformProps(chartProps: ChartProps) {
     data,
     bigNumber,
     // and now your control data, manipulated as needed, and passed through as props!
-    boldText,
+    bigNumberSize,
     headerFontSize,
     headerText,
     subheaderText,
     subheaderFontSize,
+    boldText,
+    threshold,
   };
 }

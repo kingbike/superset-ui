@@ -1,7 +1,7 @@
 /* eslint-disable no-magic-numbers, sort-keys */
 import React from 'react';
 import { SuperChart } from '@superset-ui/core';
-import { ChttlEventChartPlugin } from '@superset-ui/plugin-chart-chttl-event';
+import { ChttlEventChartPlugin } from '@chttl/plugin-chart-chttl-event';
 import data from './data';
 
 new ChttlEventChartPlugin().configure({ key: 'chttl-event' }).register();
@@ -17,12 +17,13 @@ export const basic = () => (
     height={400}
     queriesData={[{ data }]}
     formData={{
-      maxBubbleSize: '25',
-      showBubbles: true,
+      boldText: true,
+      headerFontSize: 'x-large',
+      subheaderFontSize: 'medium',
       headerText: '已處理問題單',
       subheaderText: '過去七天',
-      headerFontSize: 'x-large',
-      subheaderFontSize: 'small',
+      threshold: '50',
+      bigNumberSize: '70',
 
       metric: 'sum__SP_POP_TOTL',
     }}

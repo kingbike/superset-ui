@@ -4,10 +4,20 @@ const { lstatSync, readdirSync } = require('fs');
 
 // find @superset-ui packages
 const basePath = path.resolve(__dirname, '../../../node_modules/@superset-ui');
-const packages = readdirSync(basePath).filter(name => {
+const chttlBasePath = path.resolve(__dirname, '../../../node_modules/@chttl');
+const oriPackages = readdirSync(basePath).filter(name => {
   const stat = lstatSync(path.join(basePath, name));
   return stat.isSymbolicLink();
 });
+console.log('oriPackages', oriPackages);
+console.log('path', path);
+
+const chttlPackages = readdirSync(chttlBasePath).filter(name => {
+  const stat = lstatSync(path.join(chttlBasePath, name));
+  return stat.isSymbolicLink();
+});
+
+const packages = [...oriPackages, ...chttlPackages];
 
 const PLUGIN_PACKAGES_PATH_REGEXP = new RegExp(
   `${path.resolve(__dirname, '../../../plugins/(legacy-)*(plugin|preset)-')}.+/src`,
@@ -51,13 +61,23 @@ module.exports = {
 
     // Let webpack know where to find the source code
     Object.assign(config.resolve.alias, {
-      ...packages.reduce(
-        (acc, name) => ({
+      ...packages.reduce((acc, name) => {
+        // const nameFiltered = null;
+        // if( name.toLowerCase().includes('chttl')) {
+        //   nameFiltered = [`@chttl/${name}$`]: path.join(chttlBasePath, name, 'src');
+        // } else {
+        //   nameFiltered = [`@superset-ui/${name}$`]: path.join(basePath, name, 'src') ;
+        // }
+        console.log('name', name);
+        const nameFiltered = name.toLowerCase().includes('chttl')
+          ? { [`@chttl/${name}$`]: path.join(chttlBasePath, name, 'src') }
+          : { [`@superset-ui/${name}$`]: path.join(basePath, name, 'src') };
+        console.log('nameFiltered', nameFiltered);
+        return {
           ...acc,
-          [`@superset-ui/${name}$`]: path.join(basePath, name, 'src'),
-        }),
-        {},
-      ),
+          ...nameFiltered,
+        };
+      }, {}),
     });
 
     config.devtool = 'eval-cheap-module-source-map';
@@ -65,6 +85,7 @@ module.exports = {
       ...config.devServer,
       stats: 'minimal',
     };
+    console.log('config', config);
 
     return config;
   },

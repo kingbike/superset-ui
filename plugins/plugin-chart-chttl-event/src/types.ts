@@ -30,6 +30,8 @@ interface ChttlEventCustomizeProps {
   headerText: string;
   subheaderText: string;
   bigNumber: string;
+  threshold: string;
+  bigNumberSize: string;
 }
 
 export type ChttlEventQueryFormData = QueryFormData &

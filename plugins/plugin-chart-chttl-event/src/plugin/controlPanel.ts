@@ -142,6 +142,26 @@ const config: ControlPanelConfig = {
       controlSetRows: [
         [
           {
+            name: 'big_number_size',
+            config: {
+              type: 'SelectControl',
+              label: t('Big Number Size'),
+              default: '70',
+              choices: [
+                // [value, label]
+                ['50', '50'],
+                ['70', '70'],
+                ['90', '90'],
+                ['110', '110'],
+                ['130', '130'],
+              ],
+              renderTrigger: true,
+              description: t('The size of your header font'),
+            },
+          },
+        ],
+        [
+          {
             name: 'header_text',
             config: {
               type: 'TextControl',
@@ -159,7 +179,7 @@ const config: ControlPanelConfig = {
             config: {
               type: 'SelectControl',
               label: t('Font Size'),
-              default: 'xl',
+              default: 'x-large',
               choices: [
                 // [value, label]
                 ['xx-small', 'xx-small'],
@@ -188,14 +208,13 @@ const config: ControlPanelConfig = {
             },
           },
         ],
-
         [
           {
             name: 'subheader_font_size',
             config: {
               type: 'SelectControl',
               label: t('SUBHEADER Font Size'),
-              default: 's',
+              default: 'medium',
               choices: [
                 // [value, label]
                 ['xx-small', 'xx-small'],
@@ -220,6 +239,21 @@ const config: ControlPanelConfig = {
               renderTrigger: true,
               default: true,
               description: t('A checkbox to make the '),
+            },
+          },
+        ],
+        [
+          {
+            name: 'threshold',
+            config: {
+              type: 'TextControl',
+              default: '5', // t('leatest7days'), //過去7天
+              renderTrigger: true,
+              // ^ this makes it apply instantaneously, without triggering a "run query" button
+              label: t('threshold'), // t('SubHeader Text'),
+              description: t(
+                'The threshold to control color, below thread hold is green otherwise it is red',
+              ),
             },
           },
         ],

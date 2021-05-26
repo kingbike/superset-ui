@@ -1,6 +1,6 @@
 {
   "name": "@chttl/plugin-chart-chttl-event",
-  "version": "0.0.0",
+  "version": "0.0.5",
   "description": "Superset Chart - Chttl Event",
   "sideEffects": false,
   "main": "lib/index.js",

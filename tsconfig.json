@@ -114,7 +114,10 @@
     },
     {
       "path": "plugins/preset-chart-xy/test"
-    }
+    },
+    // {
+    //   "path": "plugins/plugin-chart-chttl-event"
+    // }
   ],
   "extends": "./tsconfig.options.json"
 }

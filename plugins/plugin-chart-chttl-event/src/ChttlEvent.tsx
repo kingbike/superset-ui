@@ -76,12 +76,12 @@ export default class ChttlEvent extends PureComponent<ChttlEventProps> {
     // height and width are the height and width of the DOM element as it exists in the dashboard.
     // There is also a `data` prop, which is, of course, your DATA 🎉
     //console.log('Approach 1 props', this.props);
-    const { data, height, width } = this.props;
-
-    console.log('Plugin props', this.props);
+    const { /*data,*/ height, width } = this.props;
 
     const { bigNumber /*, width*/ } = this.props;
     const text = bigNumber === null ? t('No data') : bigNumber;
+
+    console.log('Plugin props', this.props);
 
     return (
       <Styles
@@ -89,17 +89,36 @@ export default class ChttlEvent extends PureComponent<ChttlEventProps> {
         boldText={this.props.boldText}
         headerFontSize={this.props.headerFontSize}
         subheaderFontSize={this.props.subheaderFontSize}
+        // threshold={this.props.threshold}
+        // bigNumberSize={this.props.bigNumberSize}
+
         height={height}
         width={width}
       >
+        <div></div>
         <div style={{ fontWeight: this.props.boldText ? 'bold' : 'normal' }}>
-          <div style={{ fontSize: 50, display: 'inline-block' }}>{text}</div>
+          <div
+            style={{
+              fontSize: this.props.bigNumberSize ? this.props.bigNumberSize + 'px' : '50px',
+              display: 'inline-block',
+            }}
+          >
+            {text}
+          </div>
           <div style={{ display: 'inline-block', paddingLeft: '10px' }}>
             <div style={{ fontSize: this.props.headerFontSize }}>{this.props.headerText}</div>
             <div style={{ fontSize: this.props.subheaderFontSize }}>{this.props.subheaderText}</div>
           </div>
         </div>
-        <pre>{JSON.stringify(data, null, 2)}</pre>
+        <hr
+          style={{
+            border:
+              parseInt(bigNumber) <= parseInt(this.props.threshold)
+                ? '3px solid green'
+                : '3px solid red',
+          }}
+        />
+        {/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
       </Styles>
     );
   }
