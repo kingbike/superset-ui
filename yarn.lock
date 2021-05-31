@@ -1447,10 +1447,10 @@
     openurl "1.1.1"
     yargs "16.2.0"
 
-"@chttl/plugin-chart-chttl-event@0.0.0":
+"@chttl/plugin-chart-chttl-table@0.0.0":
   version "0.0.0"
-  resolved "https://registry.yarnpkg.com/@chttl/plugin-chart-chttl-event/-/plugin-chart-chttl-event-0.0.0.tgz#e3e88f8f3bf1e65947abcfacf5539367d233a6d0"
-  integrity sha512-mkii/dDXKj8+cudxq3StX5zwidh/FU+bZ2SGYd0cFMbGpkrbInAjvd2FGxgmdm8WrLUdh90dqEPkf6ts5jxM+w==
+  resolved "https://registry.yarnpkg.com/@chttl/plugin-chart-chttl-table/-/plugin-chart-chttl-table-0.0.0.tgz#6f3c78250f8ffa1dfe745534268eac0f774c9250"
+  integrity sha512-/GlSXHFo8L833dhrQrPAwddpd4Rtf8UEMPmgMITn8cRo+I+yQRfYpuyorIXAaK3iGj0V+m5AKVEAtd6rc3MCUg==
   dependencies:
     "@superset-ui/chart-controls" "^0.17.41"
     "@superset-ui/core" "^0.17.40"
