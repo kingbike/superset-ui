@@ -15,7 +15,7 @@ import { basicFormData, basicData } from './testData';
 // };
 
 export default {
-  title: 'CHTTL Plugins|plugin-chart-cht-table',
+  title: 'CHTTL Plugins|plugin-chart-chttl-table',
   // decorators: [withKnobs, withResizableChartDemo],
 };
 

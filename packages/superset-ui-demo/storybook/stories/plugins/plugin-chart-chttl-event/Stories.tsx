@@ -7,7 +7,7 @@ import data from './data';
 new ChttlEventChartPlugin().configure({ key: 'chttl-event' }).register();
 
 export default {
-  title: 'CHTTL Plugins|plugin-chart-cht-event',
+  title: 'CHTTL Plugins|plugin-chart-chttl-event',
 };
 
 export const basic = () => (

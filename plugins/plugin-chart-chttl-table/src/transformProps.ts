@@ -225,21 +225,6 @@ const transformProps = (chartProps: TableChartProps): TableChartTransformedProps
   console.log('columns', columns);
   console.log('data', data);
 
-  // console.log(' data[0][cpuData]', data[0]['cpuData']);
-  // const isJson = (str: string) => {
-  //   console.log('isJson', str);
-  //   let parsedJson = null;
-  //   try {
-  //     parsedJson = JSON.parse(str);
-  //   } catch (e) {
-  //     console.log(e);
-  //     return false;
-  //   }
-  //   console.log( 'parsedJson', parsedJson );
-  //   return parsedJson;
-  // };
-  // console.log('json: data[0][cpuData]', isJson( String(data[0]['cpuData']) ) );
-
   return {
     height,
     width,
